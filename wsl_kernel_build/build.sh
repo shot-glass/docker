@@ -12,6 +12,6 @@ if [ ! -d "${SRC_DIR}" ]; then
   cp ./Microsoft/config-wsl .config
 else
   cd ./WSL2-Linux-Kernel-${RELEASE}
-  make -j 4
+  make -j $(egrep -c '^processor[[:blank:]]*:' /proc/cpuinfo)
 fi
 exit
